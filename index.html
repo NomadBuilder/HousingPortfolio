@@ -506,6 +506,78 @@
       font-size: 0.98rem;
     }
 
+    /* —— Reviews —— */
+    .reviews-head {
+      max-width: 40rem;
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+    }
+
+    .reviews-head .section-title {
+      max-width: 18ch;
+    }
+
+    .reviews-stat {
+      margin-top: 1rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--sea);
+      letter-spacing: 0.02em;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem 1.5rem;
+    }
+
+    .review {
+      margin: 0;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--line);
+      display: grid;
+      gap: 0.85rem;
+      align-content: start;
+    }
+
+    .review p {
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .review footer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      padding: 0;
+      text-align: left;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .review cite {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--ink-soft);
+    }
+
+    .reviews-link {
+      display: inline-flex;
+      margin-top: 2.25rem;
+      font-weight: 600;
+      color: var(--moss-deep);
+      border-bottom: 1px solid rgba(44, 64, 51, 0.35);
+      padding-bottom: 0.15rem;
+      transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+    }
+
+    .reviews-link:hover {
+      color: var(--sea);
+      border-color: var(--sea);
+    }
+
     /* —— Contact —— */
     .contact {
       text-align: center;
@@ -562,7 +634,8 @@
       }
 
       .people-grid,
-      .promise-grid {
+      .promise-grid,
+      .reviews-grid {
         grid-template-columns: 1fr;
       }
 
@@ -619,6 +692,12 @@
     @media (min-width: 861px) {
       .people-grid .person img {
         max-height: none;
+      }
+    }
+
+    @media (min-width: 700px) and (max-width: 860px) {
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -751,7 +830,7 @@
             <img src="assets/kiera.jpeg" alt="Kiera smiling on a beach" />
             <div>
               <h3>Kiera</h3>
-              <p>Freelance designer and photographer. Loves the outdoors, long walks, and turning any sunny corner into a reading spot.</p>
+              <p>Freelance designer and photographer. Loves the outdoors, long walks, and turning any sunny corner into a reading nook.</p>
             </div>
           </article>
           <article class="person person--nala reveal">
@@ -822,6 +901,73 @@
       </div>
     </section>
 
+    <section class="reviews" id="reviews">
+      <div class="wrap">
+        <div class="reviews-head reveal">
+          <p class="section-label">Host reviews</p>
+          <h2 class="section-title">Five years of stays. References from the road.</h2>
+          <p class="section-lead">
+            While we’ve been traveling, Airbnb has been our housing. Hosts across
+            Canada and abroad have left us reviews — the closest thing to landlord
+            references from the last few years.
+          </p>
+          <p class="reviews-stat">23 reviews from hosts</p>
+        </div>
+        <div class="reviews-grid">
+          <blockquote class="review reveal">
+            <p>“Fantastic guests: quiet, respectful, personable and left our suite in immaculate condition. We would happily welcome them again and recommend them highly.”</p>
+            <footer>
+              <cite>Dale</cite>
+              <span>Comox, Canada · May 2026</span>
+            </footer>
+          </blockquote>
+          <blockquote class="review reveal">
+            <p>“It was a pleasure hosting Aazir and Kiera for an extended stay. Quiet, respectful, and they maintained the space very well. We would welcome them back anytime.”</p>
+            <footer>
+              <cite>Sugnet</cite>
+              <span>Swakopmund, Namibia · April 2025</span>
+            </footer>
+          </blockquote>
+          <blockquote class="review reveal">
+            <p>“5/5 cleaning rating from my cleaners. Would host again.”</p>
+            <footer>
+              <cite>Candace</cite>
+              <span>Sooke, Canada · May 2026</span>
+            </footer>
+          </blockquote>
+          <blockquote class="review reveal">
+            <p>“Absolutely wonderful guests. Communication was excellent, and they left our room impeccably clean. Always welcome back.”</p>
+            <footer>
+              <cite>Team Pipe</cite>
+              <span>Seoul, South Korea · December 2024</span>
+            </footer>
+          </blockquote>
+          <blockquote class="review reveal">
+            <p>“Excellent guests. They left everything very clean and picked up.”</p>
+            <footer>
+              <cite>Juan</cite>
+              <span>Granada, Spain · October 2022</span>
+            </footer>
+          </blockquote>
+          <blockquote class="review reveal">
+            <p>“Communicated well, followed all house rules, and was respectful of our home. We would welcome her back and recommend to other hosts.”</p>
+            <footer>
+              <cite>Katie</cite>
+              <span>London, Canada · February 2019</span>
+            </footer>
+          </blockquote>
+        </div>
+        <a
+          class="reviews-link reveal"
+          href="https://www.airbnb.ca/users/profile/1472808813006733562"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Read all 23 host reviews on Airbnb
+        </a>
+      </div>
+    </section>
+
     <section class="contact" id="contact">
       <div class="wrap reveal">
         <p class="section-label">Let’s talk</p>
@@ -835,7 +981,7 @@
           <a class="btn btn-primary" href="mailto:YOUR_EMAIL_HERE?subject=Home%20for%20Aazir%20%26%20Kiera">
             Reach out
           </a>
-          <p class="contact-note">References, proof of income, and availability — ready when you are.</p>
+          <p class="contact-note">Letter of employment, pay stubs, Airbnb host reviews, and availability — ready when you are.</p>
         </div>
       </div>
     </section>
