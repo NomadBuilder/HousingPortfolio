@@ -378,18 +378,21 @@
     .people-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
+      gap: 1.5rem;
+      align-items: start;
     }
 
     .person {
       display: grid;
-      gap: 1rem;
+      grid-template-rows: auto 1fr;
+      gap: 0.85rem;
+      min-width: 0;
     }
 
     .person img {
+      display: block;
       width: 100%;
       aspect-ratio: 4 / 5;
-      max-height: 28rem;
       height: auto;
       object-fit: cover;
       transition: transform 0.8s var(--ease);
@@ -404,11 +407,13 @@
       font-size: 1.55rem;
       font-weight: 600;
       line-height: 1.1;
+      margin: 0;
     }
 
     .person p {
       color: var(--muted);
       font-size: 0.98rem;
+      margin: 0;
     }
 
     .person--aazir img {
@@ -420,9 +425,7 @@
     }
 
     .person--nala img {
-      aspect-ratio: 3 / 2;
-      object-position: 82% 38%;
-      max-height: 18rem;
+      object-position: 78% 42%;
     }
 
     /* —— Life —— */
@@ -592,15 +595,9 @@
       }
 
       .person img {
-        max-height: 26rem;
-        width: min(100%, 22rem);
+        width: 100%;
+        max-width: 22rem;
         margin-inline: auto;
-      }
-
-      .person--nala img {
-        width: min(100%, 28rem);
-        max-height: 16rem;
-        object-position: 85% 38%;
       }
 
       .intro-photo img,
@@ -621,12 +618,7 @@
 
     @media (min-width: 861px) {
       .people-grid .person img {
-        max-height: 26rem;
-      }
-
-      .people-grid .person--nala img {
-        max-height: 15rem;
-        object-position: 85% 38%;
+        max-height: none;
       }
     }
 
@@ -752,7 +744,7 @@
             <img src="assets/aazir.jpeg" alt="Aazir smiling at a restaurant table" />
             <div>
               <h3>Aazir</h3>
-              <p>Full-time remote tech professional. Organized, early-to-quiet evenings, forever planning the next trip — and the next cup of tea.</p>
+              <p>Full-time remote tech professional. Loves working out, hiking and spending time in the ocean. Enjoys reading and relaxing, but also forever planning the next trip — and the next cup of tea.</p>
             </div>
           </article>
           <article class="person person--kiera reveal">
