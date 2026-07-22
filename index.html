@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aazir &amp; Kiera — Looking for a Home</title>
+  <meta name="description" content="Meet Aazir, Kiera, and Nala — a quiet household seeking a long-term home to rent or buy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1c2420;
+      --ink-soft: #3d4a43;
+      --muted: #5e6b64;
+      --paper: #f3f0e8;
+      --paper-deep: #e7e2d6;
+      --moss: #3f5a48;
+      --moss-deep: #2c4033;
+      --sage: #8fa38f;
+      --sea: #2f6b6a;
+      --mist: rgba(243, 240, 232, 0.92);
+      --line: rgba(28, 36, 32, 0.12);
+      --shadow: 0 24px 60px rgba(28, 36, 32, 0.14);
+      --radius: 2px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-display: "Fraunces", Georgia, serif;
+      --font-body: "Manrope", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(143, 163, 143, 0.28), transparent 55%),
+        radial-gradient(900px 500px at 100% 20%, rgba(47, 107, 106, 0.12), transparent 50%),
+        linear-gradient(180deg, #ebe6db 0%, var(--paper) 35%, #efece4 100%);
+      line-height: 1.65;
+      font-size: 1.05rem;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.35rem 0;
+      color: #f7f4ec;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(247, 244, 236, 0.55);
+      padding-bottom: 0.15rem;
+      transition: border-color 0.3s var(--ease), opacity 0.3s var(--ease);
+    }
+
+    .nav-cta:hover {
+      border-color: #fff;
+      opacity: 0.9;
+    }
+
+    /* —— Hero —— */
+    .hero {
+      position: relative;
+      min-height: min(100svh, 52rem);
+      max-height: 56rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #f7f4ec;
+      overflow: hidden;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 48% 28%;
+      transform: scale(1.04);
+      animation: heroDrift 18s var(--ease) infinite alternate;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(16, 24, 20, 0.45) 0%, rgba(16, 24, 20, 0.12) 32%, rgba(16, 24, 20, 0.25) 55%, rgba(16, 24, 20, 0.82) 100%);
+    }
+
+    @keyframes heroDrift {
+      from { transform: scale(1.04) translate3d(0, 0, 0); }
+      to { transform: scale(1.08) translate3d(0, -1%, 0); }
+    }
+
+    .hero-nav-wrap {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 5;
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+    }
+
+    .hero-copy-wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 5.5rem 0 4.25rem;
+      width: min(760px, 100%);
+    }
+
+    .hero-brand {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2.6rem, 6.5vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: #f7f4ec;
+      text-shadow: 0 2px 28px rgba(0, 0, 0, 0.25);
+      max-width: 100%;
+      opacity: 0;
+      animation: riseIn 1s var(--ease) 0.15s forwards;
+    }
+
+    .hero-brand .name-line {
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      padding-inline: 0.02em 0.08em;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(1.35rem, 2.8vw, 1.9rem);
+      line-height: 1.3;
+      max-width: 24ch;
+      margin-bottom: 0.85rem;
+      opacity: 0;
+      animation: riseIn 1s var(--ease) 0.35s forwards;
+    }
+
+    .hero-lede {
+      max-width: 42ch;
+      color: rgba(247, 244, 236, 0.88);
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: riseIn 1s var(--ease) 0.5s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem 1rem;
+      opacity: 0;
+      animation: riseIn 1s var(--ease) 0.65s forwards;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.35rem;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: #f7f4ec;
+      color: var(--moss-deep);
+    }
+
+    .btn-primary:hover {
+      background: #fff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #f7f4ec;
+      border-color: rgba(247, 244, 236, 0.45);
+    }
+
+    .btn-ghost:hover {
+      border-color: #f7f4ec;
+      background: rgba(247, 244, 236, 0.08);
+    }
+
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* —— Sections —— */
+    section {
+      padding: clamp(4.5rem, 10vw, 7rem) 0;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sea);
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2rem, 4.5vw, 3.1rem);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      max-width: 16ch;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      max-width: 48ch;
+      font-size: 1.08rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* —— Intro —— */
+    .intro {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+
+    .intro-copy p + p {
+      margin-top: 1rem;
+    }
+
+    .intro-copy p {
+      color: var(--ink-soft);
+    }
+
+    .intro-photo {
+      position: relative;
+    }
+
+    .intro-photo img {
+      width: 100%;
+      max-width: 28rem;
+      height: min(34rem, 72vw);
+      max-height: 34rem;
+      object-fit: cover;
+      object-position: center 28%;
+      box-shadow: var(--shadow);
+      margin-inline: auto;
+    }
+
+    .intro-photo figcaption {
+      margin-top: 0.85rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* —— Looking for —— */
+    .looking {
+      background:
+        linear-gradient(180deg, rgba(63, 90, 72, 0.06), rgba(63, 90, 72, 0.02)),
+        var(--paper-deep);
+    }
+
+    .looking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(2rem, 6vw, 4.5rem);
+      align-items: start;
+    }
+
+    .criteria {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .criterion {
+      display: grid;
+      grid-template-columns: 9.5rem 1fr;
+      gap: 1rem;
+      padding: 1.15rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .criterion dt {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--moss-deep);
+    }
+
+    .criterion dd {
+      color: var(--ink-soft);
+    }
+
+    /* —— People —— */
+    .people-head {
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .person {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .person img {
+      width: 100%;
+      height: min(26rem, 70vw);
+      max-height: 26rem;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease);
+    }
+
+    .person:hover img {
+      transform: scale(1.02);
+    }
+
+    .person h3 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .person p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .person--aazir img { object-position: center 18%; }
+    .person--kiera img { object-position: center 22%; }
+    .person--nala img {
+      object-position: 72% 40%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      max-height: 18rem;
+    }
+
+    /* —— Life —— */
+    .life {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+
+    .life-photo img {
+      width: 100%;
+      max-width: 40rem;
+      height: min(26rem, 55vw);
+      max-height: 26rem;
+      object-fit: cover;
+      object-position: 48% 35%;
+      box-shadow: var(--shadow);
+    }
+
+    .life-list {
+      list-style: none;
+      display: grid;
+      gap: 1.15rem;
+      margin-top: 1.75rem;
+    }
+
+    .life-list li {
+      padding-left: 1.1rem;
+      border-left: 2px solid var(--sage);
+      color: var(--ink-soft);
+    }
+
+    .life-list strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+
+    /* —— Tenants —— */
+    .tenants {
+      background: var(--moss-deep);
+      color: #f3f0e8;
+    }
+
+    .tenants .section-label {
+      color: var(--sage);
+    }
+
+    .tenants .section-title {
+      color: #f7f4ec;
+      max-width: 18ch;
+    }
+
+    .tenants .section-lead {
+      color: rgba(243, 240, 232, 0.78);
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem 2rem;
+      margin-top: 2.75rem;
+      border-top: 1px solid rgba(243, 240, 232, 0.16);
+      padding-top: 2rem;
+    }
+
+    .promise h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    .promise p {
+      color: rgba(243, 240, 232, 0.75);
+      font-size: 0.98rem;
+    }
+
+    /* —— Contact —— */
+    .contact {
+      text-align: center;
+    }
+
+    .contact .section-title {
+      margin-inline: auto;
+      max-width: 14ch;
+    }
+
+    .contact .section-lead {
+      margin-inline: auto;
+    }
+
+    .contact-panel {
+      margin-top: 2.25rem;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem 2.25rem;
+      background: rgba(255, 255, 255, 0.45);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    .contact-panel .btn-primary {
+      background: var(--moss);
+      color: #f7f4ec;
+      min-width: 12rem;
+    }
+
+    .contact-panel .btn-primary:hover {
+      background: var(--moss-deep);
+    }
+
+    .contact-note {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 0 0 2.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 860px) {
+      .intro,
+      .looking-grid,
+      .life {
+        grid-template-columns: 1fr;
+      }
+
+      .people-grid,
+      .promise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .people-grid {
+        gap: 2rem;
+      }
+
+      .criterion {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+      }
+
+      .hero {
+        min-height: min(100svh, 40rem);
+        max-height: 44rem;
+      }
+
+      .hero-media img {
+        object-position: 52% 30%;
+        transform: none;
+        animation: none;
+      }
+
+      .hero-content {
+        padding: 4.5rem 0 2.5rem;
+      }
+
+      .hero-brand {
+        font-size: clamp(2.35rem, 10vw, 3.25rem);
+      }
+
+      .person img {
+        height: min(22rem, 85vw);
+        max-height: 22rem;
+      }
+
+      .person--nala img {
+        max-height: 16rem;
+        object-position: 70% 38%;
+      }
+
+      .intro-photo img,
+      .life-photo img {
+        max-width: 100%;
+        height: min(24rem, 88vw);
+        max-height: 24rem;
+      }
+
+      .intro-photo {
+        order: -1;
+      }
+
+      .life-photo {
+        order: -1;
+      }
+    }
+
+    @media (min-width: 861px) {
+      .people-grid .person img {
+        height: min(24rem, 28vw);
+        max-height: 24rem;
+      }
+
+      .people-grid .person--nala img {
+        max-height: 16rem;
+        object-position: 70% 38%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-media img,
+      .reveal,
+      .hero-brand,
+      .hero h1,
+      .hero-lede,
+      .hero-actions {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="assets/couple.jpg" alt="" />
+    </div>
+    <div class="wrap hero-nav-wrap">
+      <nav class="nav" aria-label="Primary">
+        <div class="nav-brand">Aazir &amp; Kiera</div>
+        <a class="nav-cta" href="#contact">Say hello</a>
+      </nav>
+    </div>
+    <div class="wrap hero-copy-wrap">
+      <div class="hero-content">
+        <p class="hero-brand">
+          <span class="name-line">Aazir</span>
+          <span class="name-line">&amp; Kiera</span>
+        </p>
+        <h1>Quiet professionals. Ready to rent — or buy the right place.</h1>
+        <p class="hero-lede">We’re a small household searching for a long-term home this fall. Stable income, strong references, and the kind of tenants who take care of a place.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Message us about a place</a>
+          <a class="btn btn-ghost" href="#about">See why we’re a fit</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="wrap intro reveal">
+        <div class="intro-copy">
+          <p class="section-label">Who we are</p>
+          <h2 class="section-title">Easy to approve. Easy to live next to.</h2>
+          <p>
+            We’re Aazir and Kiera — a remote tech professional and a freelance
+            designer &amp; photographer with calm routines, clean habits, and
+            zero interest in parties or noise. We work from home, keep to ourselves,
+            and treat every place like we’d own it.
+          </p>
+          <p>
+            Non-smokers. No drugs. No late-night gatherings. Just two people who
+            value quiet, good neighbors, and a home that stays well cared for.
+            Our cat Nala is indoor-only, litter-trained, and low-drama.
+          </p>
+          <p>
+            We’re looking for a condo, townhouse, or house we can settle into
+            for the long haul — not a short stopover.
+          </p>
+        </div>
+        <figure class="intro-photo">
+          <img src="assets/travel.jpeg" alt="Aazir and Kiera on a coastal hike during travel" />
+          <figcaption>Outdoors for adventure. Home for quiet.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="looking" id="looking">
+      <div class="wrap looking-grid reveal">
+        <div>
+          <p class="section-label">The search</p>
+          <h2 class="section-title">Rent this fall — or buy if it’s the one.</h2>
+          <p class="section-lead">
+            Clear ask, flexible on the right fit: a calm home with privacy,
+            ideally a view, and space we can stay in for years.
+          </p>
+        </div>
+        <dl class="criteria">
+          <div class="criterion">
+            <dt>When</dt>
+            <dd>Ready to move in the fall. Flexible timing if the home is right.</dd>
+          </div>
+          <div class="criterion">
+            <dt>Rent budget</dt>
+            <dd>Up to $3,000 / month. Application, references, and proof of income ready.</dd>
+          </div>
+          <div class="criterion">
+            <dt>Buying</dt>
+            <dd>Open to purchasing if the place feels like a long-term home.</dd>
+          </div>
+          <div class="criterion">
+            <dt>Home type</dt>
+            <dd>Condo, townhouse, or house. Quiet and quality over square footage.</dd>
+          </div>
+          <div class="criterion">
+            <dt>Must-haves</dt>
+            <dd>Privacy, natural light, and ideally a view. A place that feels settled.</dd>
+          </div>
+          <div class="criterion">
+            <dt>Household</dt>
+            <dd>2 adults + 1 indoor cat. No smoking. No parties. Long-term tenants.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="family">
+      <div class="wrap">
+        <div class="people-head reveal">
+          <p class="section-label">The household</p>
+          <h2 class="section-title">Meet Aazir, Kiera &amp; Nala.</h2>
+          <p class="section-lead">Real people you’ll actually want living in your property.</p>
+        </div>
+        <div class="people-grid">
+          <article class="person person--aazir reveal">
+            <img src="assets/aazir.jpeg" alt="Aazir smiling at a restaurant table" />
+            <div>
+              <h3>Aazir</h3>
+              <p>Full-time remote tech professional. Organized, early-to-quiet evenings, forever planning the next trip — and the next cup of tea.</p>
+            </div>
+          </article>
+          <article class="person person--kiera reveal">
+            <img src="assets/kiera.jpeg" alt="Kiera smiling on a beach" />
+            <div>
+              <h3>Kiera</h3>
+              <p>Freelance designer and photographer. Loves the outdoors, long walks, and turning any sunny corner into a reading spot.</p>
+            </div>
+          </article>
+          <article class="person person--nala reveal">
+            <img src="assets/nala.jpg" alt="Nala the tabby cat resting on a soft blanket" width="1236" height="786" />
+            <div>
+              <h3>Nala</h3>
+              <p>Our silver tabby. Indoor-only, litter-trained, and happiest napping on a windowsill — not scratching your walls.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="life">
+      <div class="wrap life reveal">
+        <figure class="life-photo">
+          <img src="assets/couple.jpg" alt="Aazir and Kiera together with mountains behind them" />
+        </figure>
+        <div>
+          <p class="section-label">How we live</p>
+          <h2 class="section-title">Busy outside. Peaceful at home.</h2>
+          <p class="section-lead">
+            We spend weekends outdoors and traveling. At home, it’s quiet nights —
+            tea, books, and the kind of care that keeps a property looking its best.
+          </p>
+          <ul class="life-list">
+            <li>
+              <strong>Outdoors &amp; travel</strong>
+              Hikes, trips, fresh air — then we come home ready for stillness, not parties.
+            </li>
+            <li>
+              <strong>Books &amp; tea</strong>
+              Our ideal evening: kettle on, lights low, a stack of books. That’s the vibe.
+            </li>
+            <li>
+              <strong>Stable work</strong>
+              Aazir holds a full-time corporate role; Kiera freelances in design
+              and photography. Happy to share income verification, references,
+              and a complete application right away.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="tenants" id="tenants">
+      <div class="wrap reveal">
+        <p class="section-label">Why choose us</p>
+        <h2 class="section-title">Low risk. High care. Ready now.</h2>
+        <p class="section-lead">
+          Good homes go fast — we know. We’re prepared to move quickly, answer
+          clearly, and look after your property like it’s ours.
+        </p>
+        <div class="promise-grid">
+          <div class="promise">
+            <h3>Quiet by nature</h3>
+            <p>No parties, no smoking, no drama. Remote work, calm evenings, respectful neighbors.</p>
+          </div>
+          <div class="promise">
+            <h3>Property-first</h3>
+            <p>Clean, careful, and quick to flag maintenance — we leave places better than we found them.</p>
+          </div>
+          <div class="promise">
+            <h3>Here to stay</h3>
+            <p>We’re not hopping leases. We want a home we can settle into for years.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap reveal">
+        <p class="section-label">Let’s talk</p>
+        <h2 class="section-title">Have a place — or know someone who does?</h2>
+        <p class="section-lead">
+          Condo, townhouse, or house. Rent or sale. If it might be a fit,
+          send it our way — we’d love to take a look.
+        </p>
+        <div class="contact-panel">
+          <!-- Update the email below before sharing -->
+          <a class="btn btn-primary" href="mailto:YOUR_EMAIL_HERE?subject=Home%20for%20Aazir%20%26%20Kiera">
+            Reach out
+          </a>
+          <p class="contact-note">References, proof of income, and availability — ready when you are.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Aazir, Kiera &amp; Nala — ready for our next home.</div>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      revealEls.forEach((el) => observer.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>
