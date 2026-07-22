@@ -388,8 +388,9 @@
 
     .person img {
       width: 100%;
-      height: min(26rem, 70vw);
-      max-height: 26rem;
+      aspect-ratio: 4 / 5;
+      max-height: 28rem;
+      height: auto;
       object-fit: cover;
       transition: transform 0.8s var(--ease);
     }
@@ -410,12 +411,17 @@
       font-size: 0.98rem;
     }
 
-    .person--aazir img { object-position: center 18%; }
-    .person--kiera img { object-position: center 22%; }
+    .person--aazir img {
+      object-position: center 12%;
+    }
+
+    .person--kiera img {
+      object-position: center 42%;
+    }
+
     .person--nala img {
-      object-position: 72% 40%;
-      height: auto;
       aspect-ratio: 3 / 2;
+      object-position: 82% 38%;
       max-height: 18rem;
     }
 
@@ -586,13 +592,15 @@
       }
 
       .person img {
-        height: min(22rem, 85vw);
-        max-height: 22rem;
+        max-height: 26rem;
+        width: min(100%, 22rem);
+        margin-inline: auto;
       }
 
       .person--nala img {
+        width: min(100%, 28rem);
         max-height: 16rem;
-        object-position: 70% 38%;
+        object-position: 85% 38%;
       }
 
       .intro-photo img,
@@ -613,13 +621,12 @@
 
     @media (min-width: 861px) {
       .people-grid .person img {
-        height: min(24rem, 28vw);
-        max-height: 24rem;
+        max-height: 26rem;
       }
 
       .people-grid .person--nala img {
-        max-height: 16rem;
-        object-position: 70% 38%;
+        max-height: 15rem;
+        object-position: 85% 38%;
       }
     }
 
